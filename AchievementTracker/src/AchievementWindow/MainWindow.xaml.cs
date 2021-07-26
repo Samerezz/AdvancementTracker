@@ -48,7 +48,18 @@ namespace AdvancementTracker.src.AchievementWindow
             ABalancedDietList.ItemsSource = CreateAdvancements.Advancements.ABlanacedDiet.Objects;
 
         }
-        
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+           var result = MessageBox.Show("Press Ok to confirm", "Delete Save", MessageBoxButton.OKCancel);
+            if (result == MessageBoxResult.OK)
+            {
+                Delete.DeleteAdvancments();
+                CreateAdvancements.Advancements = new Advancements();
+                CreateAdvancements.Create();
+                DisplayAdvancements();
+            }
+        }
     }
 
 }
