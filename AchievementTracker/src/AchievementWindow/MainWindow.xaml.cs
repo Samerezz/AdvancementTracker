@@ -13,7 +13,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace src.AchievementWindow
+
+using AdvancementTracker.src.Core.Advancement;
+using AdvancementTracker.src.Core.Data;
+namespace AdvancementTracker.src.AchievementWindow
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -22,13 +25,33 @@ namespace src.AchievementWindow
     {
         public MainWindow()
         {
-            
             InitializeComponent();
-            
-            
+            Load.LoadAdvancments();
+            DisplayAdvancements();
+            Closed += MainWindow_Closed;
+
+        }
+        private void MainWindow_Closed(object sender, EventArgs e)
+        {
+            Save.SaveAdvancments();
+        }
+
+        public void DisplayAdvancements()
+        {
+
+            MonstersHuntedList.ItemsSource = CreateAdvancements.Advancements.MonstersHunted.Objects;
+
+            AdventuringTimeList.ItemsSource = CreateAdvancements.Advancements.AdventuringTime.Objects;
+
+            TwobyTwoList.ItemsSource = CreateAdvancements.Advancements.TwoByTwo.Objects;
+
+            ABalancedDietList.ItemsSource = CreateAdvancements.Advancements.ABlanacedDiet.Objects;
+
         }
         
     }
-    
-    
+
 }
+    
+    
+
