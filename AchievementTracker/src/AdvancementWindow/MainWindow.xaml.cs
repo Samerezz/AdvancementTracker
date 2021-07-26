@@ -12,11 +12,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using Microsoft.Win32;
 
 using AdvancementTracker.src.Core.Advancement;
 using AdvancementTracker.src.Core.Data;
-namespace AdvancementTracker.src.AchievementWindow
+using AdvancementTracker.src.Core.AdvancementFileReader;
+namespace AdvancementTracker.src.AdvancementWindow
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -59,6 +60,18 @@ namespace AdvancementTracker.src.AchievementWindow
                 CreateAdvancements.Create();
                 DisplayAdvancements();
             }
+        }
+
+        private void ReadButton_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog file = new OpenFileDialog();
+            if (file.ShowDialog() == true)
+            {
+                Reader.Read(file.OpenFile());
+                DisplayAdvancements();
+            }
+            
+            
         }
     }
 

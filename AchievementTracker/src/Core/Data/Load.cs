@@ -16,6 +16,7 @@ namespace AdvancementTracker.src.Core.Data
         {
             if (File.Exists(path + @"\AdvancementTracker\save.json"))
             {
+              
                 try
                 {
                     Directory.CreateDirectory(path + @"\AdvancementTracker");

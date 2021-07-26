@@ -1,10 +1,10 @@
-﻿<Window x:Class="AdvancementTracker.src.AchievementWindow.MainWindow"
+﻿<Window x:Class="AdvancementTracker.src.AdvancementWindow.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" FontFamily="Segoe UI Light"
-        Title="Achievement Tracker" Height="600" Width="400" SizeToContent="Width" FontSize="13">
+        Title="Advancement Tracker" Height="600" Width="400" SizeToContent="Width" FontSize="13">
     <ScrollViewer>
 
 
@@ -42,7 +42,8 @@
             </Grid.RowDefinitions>
 
 
-            <TextBlock Text="Achievements" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" FontSize="30" />
+            <TextBlock Text="Advancements" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" FontSize="30" />
+            <Button Content="Read Advancement File" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" Width="200" Height= "30" FontSize="18" Margin="0,40,0,0" Click="ReadButton_Click" />
             
             
             <Line Margin="0,10" Grid.Row="2" Grid.Column="1" StrokeThickness="5" Stroke="LightGray" X1="1" Y1="1" X2="360" Y2="1"/>
