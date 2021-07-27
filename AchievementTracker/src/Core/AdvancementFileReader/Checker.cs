@@ -20,7 +20,7 @@ namespace AdvancementTracker.src.Core.AdvancementFileReader
                     {
                         foreach (var obj2 in result.ABlanacedDiet.Objects)
                         {
-                            if (obj1.ToLower().Equals(obj2.Name.ToLower()))
+                            if (obj1.ToLower().Equals(obj2.Name.ToLower().Replace("raw ",string.Empty)))
                             {
                                 obj2.IsCompleted = true;
                                 break;
