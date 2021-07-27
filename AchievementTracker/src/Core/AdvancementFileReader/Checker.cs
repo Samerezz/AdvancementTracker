@@ -12,14 +12,14 @@ namespace AdvancementTracker.src.Core.AdvancementFileReader
     {
         public static void Check(Root advancements1)
         {
-            Advancements result = CreateAdvancements.Advancements;
-            
+            Advancements result = new Advancements();
+            CreateAdvancements.Create(result);
             if (advancements1.BalancedDiet != null)
             {
                 {
                     foreach (var obj1 in advancements1.BalancedDiet)
                     {
-                        foreach (var obj2 in result.ABlanacedDiet.Objects)
+                        foreach (var obj2 in result.AbalancedDiet.Objects)
                         {
                             if (obj1.ToLower().Equals(obj2.Name.ToLower().Replace("raw ",string.Empty)))
                             {

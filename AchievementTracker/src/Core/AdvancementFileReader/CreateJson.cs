@@ -11,6 +11,7 @@ namespace AdvancementTracker.src.Core.AdvancementFileReader
     {
         public static void Create(string data)
         {
+            
             string bredAllAnimals = GetAdvancement.Get(data, "\"minecraft:husbandry/bred_all_animals\": {");
             string adventuringTime = GetAdvancement.Get(data, "\"minecraft:adventure/adventuring_time\": {");
             string killAllMobs = GetAdvancement.Get(data, "\"minecraft:adventure/kill_all_mobs\": {");

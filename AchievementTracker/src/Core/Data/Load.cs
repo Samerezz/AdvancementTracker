@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using System.IO;
 
 using AdvancementTracker.src.Core.Advancement;
+using AdvancementTracker.src.AdvancementWindow;
 namespace AdvancementTracker.src.Core.Data
 {
     class Load
@@ -23,17 +24,16 @@ namespace AdvancementTracker.src.Core.Data
 
                     var text = File.ReadAllText(path + @"\AdvancementTracker\save.json");
                     Advancements advancements = JsonConvert.DeserializeObject<Advancements>(text);
-                    CreateAdvancements.Advancements = advancements;
+                    MainWindow.Advancements = advancements;
                 }
                 catch
                 {
-                    //CreateAdvancements.Advancements = new Advancements();
                     throw;
                 }
             }
             else
             {
-                CreateAdvancements.Create();
+                CreateAdvancements.Create(MainWindow.Advancements);
             }
             
         }

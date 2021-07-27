@@ -10,14 +10,14 @@ namespace AdvancementTracker.src.Core.Advancement
 {
     public static class CreateAdvancements
     {
-        public static Advancements Advancements { get; set; } = new Advancements();
+        
 
-        public static void Create()
+        public static void Create(Advancements advancements)
         {
-            AddItems(Advancements.MonstersHunted, Properties.Resources.Monsters);
-            AddItems(Advancements.ABlanacedDiet, Properties.Resources.Food);
-            AddItems(Advancements.AdventuringTime, Properties.Resources.Biomes);
-            AddItems(Advancements.TwoByTwo, Properties.Resources.Animals);
+            AddItems(advancements.MonstersHunted, Properties.Resources.Monsters);
+            AddItems(advancements.AbalancedDiet, Properties.Resources.Food);
+            AddItems(advancements.AdventuringTime, Properties.Resources.Biomes);
+            AddItems(advancements.TwoByTwo, Properties.Resources.Animals);
         }
         public static void AddItems(Advancement advancement, byte[] file)
         {

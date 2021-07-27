@@ -24,6 +24,7 @@ namespace AdvancementTracker.src.AdvancementWindow
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static Advancements Advancements { get; set; } = new Advancements();
         public MainWindow()
         {
             InitializeComponent();
@@ -34,19 +35,24 @@ namespace AdvancementTracker.src.AdvancementWindow
         }
         private void MainWindow_Closed(object sender, EventArgs e)
         {
-            Save.SaveAdvancments(CreateAdvancements.Advancements);
+            Save.SaveAdvancments(Advancements);
         }
 
         public void DisplayAdvancements()
         {
 
-            MonstersHuntedList.ItemsSource = CreateAdvancements.Advancements.MonstersHunted.Objects;
+            MonstersHuntedList.ItemsSource = Advancements.MonstersHunted.Objects;
 
-            AdventuringTimeList.ItemsSource = CreateAdvancements.Advancements.AdventuringTime.Objects;
+            AdventuringTimeList.ItemsSource = Advancements.AdventuringTime.Objects;
 
-            TwobyTwoList.ItemsSource = CreateAdvancements.Advancements.TwoByTwo.Objects;
+            TwoByTwoList.ItemsSource = Advancements.TwoByTwo.Objects;
 
-            ABalancedDietList.ItemsSource = CreateAdvancements.Advancements.ABlanacedDiet.Objects;
+            ABalancedDietList.ItemsSource = Advancements.AbalancedDiet.Objects;
+
+            MonsterHuntedInfo.Text = GetInfo.Get(Advancements.MonstersHunted.Objects);
+            AdventuringTimeInfo.Text = GetInfo.Get(Advancements.AdventuringTime.Objects);
+            TwoByTwoInfo.Text = GetInfo.Get(Advancements.TwoByTwo.Objects);
+            ABalancedDietInfo.Text = GetInfo.Get(Advancements.AbalancedDiet.Objects);
 
         }
 
@@ -56,8 +62,8 @@ namespace AdvancementTracker.src.AdvancementWindow
             if (result == MessageBoxResult.OK)
             {
                 Delete.DeleteAdvancments();
-                CreateAdvancements.Advancements = new Advancements();
-                CreateAdvancements.Create();
+                Advancements = new Advancements();
+                CreateAdvancements.Create(Advancements);
                 DisplayAdvancements();
             }
         }
@@ -74,6 +80,25 @@ namespace AdvancementTracker.src.AdvancementWindow
             
         }
 
+        
+
+        private void MonsterHuntedCheckBox_Click(object sender, RoutedEventArgs e)
+        {
+            MonsterHuntedInfo.Text = GetInfo.Get(Advancements.MonstersHunted.Objects);
+        }
+        private void AdventuringTimeCheckBox_Click(object sender, RoutedEventArgs e)
+        {
+            AdventuringTimeInfo.Text = GetInfo.Get(Advancements.AdventuringTime.Objects);
+        }
+        private void TwoByTwoCheckBox_Click(object sender, RoutedEventArgs e)
+        {
+            TwoByTwoInfo.Text = GetInfo.Get(Advancements.TwoByTwo.Objects);
+        }
+        private void ABlanacedDietCheckBox_Click(object sender, RoutedEventArgs e)
+        {
+            ABalancedDietInfo.Text = GetInfo.Get(Advancements.AbalancedDiet.Objects);
+            
+        }
     }
 
 }

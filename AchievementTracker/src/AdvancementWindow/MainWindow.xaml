@@ -51,6 +51,7 @@
 
             <TextBlock Text="Monsters Hunted" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" FontSize="22" />
             <TextBlock Text="(Kill one of every hostile monster)" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" FontSize="14" />
+            <TextBlock x:Name="MonsterHuntedInfo" Margin="0,15,0,0" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" FontSize="14" />
             <ScrollViewer Grid.Row="5" Grid.Column="1" Width="200" Height="100">
                 <ListView x:Name="MonstersHuntedList">
                     <ListView.ItemTemplate>
@@ -60,7 +61,7 @@
                                     <ColumnDefinition Width="auto"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <CheckBox Grid.Column="0" IsChecked="{Binding IsCompleted}"/>
+                                <CheckBox Grid.Column="0" IsChecked="{Binding IsCompleted}" Click="MonsterHuntedCheckBox_Click" />
                                 <TextBlock Grid.Column="1" Margin="7,0"  Text="{Binding Name}"/>
                             </Grid>
                         </DataTemplate>
@@ -74,6 +75,7 @@
 
             <TextBlock Text="Adventuring Time" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Center" FontSize="22" />
             <TextBlock Text="(Discover every biome)" Grid.Column="1" Grid.Row="8" HorizontalAlignment="Center" FontSize="14" />
+            <TextBlock x:Name="AdventuringTimeInfo" Margin="0,15,0,0" Grid.Column="1" Grid.Row="8" HorizontalAlignment="Center" FontSize="14" />
             <ScrollViewer Grid.Row="9" Grid.Column="1" Width="200" Height="100">
                 <ListView x:Name="AdventuringTimeList">
                     <ListView.ItemTemplate>
@@ -83,7 +85,7 @@
                                     <ColumnDefinition Width="auto"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <CheckBox Grid.Column="0" IsChecked="{Binding IsCompleted}"/>
+                                <CheckBox Grid.Column="0" IsChecked="{Binding IsCompleted}" Click="AdventuringTimeCheckBox_Click"/>
                                 <TextBlock Grid.Column="1" Margin="7,0"  Text="{Binding Name}"/>
                             </Grid>
                         </DataTemplate>
@@ -97,8 +99,9 @@
 
             <TextBlock Text="Two by Two" Grid.Column="1" Grid.Row="11" HorizontalAlignment="Center" FontSize="22" />
             <TextBlock Text="(Breed all the animals)" Grid.Column="1" Grid.Row="12" HorizontalAlignment="Center" FontSize="14" />
+            <TextBlock x:Name="TwoByTwoInfo" Margin="0,15,0,0" Grid.Column="1" Grid.Row="12" HorizontalAlignment="Center" FontSize="14" />
             <ScrollViewer Grid.Row="13" Grid.Column="1" Width="200" Height="100">
-                <ListView x:Name="TwobyTwoList">
+                <ListView x:Name="TwoByTwoList">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <Grid>
@@ -106,7 +109,7 @@
                                     <ColumnDefinition Width="auto"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <CheckBox Grid.Column="0" IsChecked="{Binding IsCompleted}"/>
+                                <CheckBox Grid.Column="0" IsChecked="{Binding IsCompleted}" Click="TwoByTwoCheckBox_Click"/>
                                 <TextBlock Grid.Column="1" Margin="7,0"  Text="{Binding Name}"/>
                             </Grid>
                         </DataTemplate>
@@ -120,6 +123,7 @@
 
             <TextBlock Text="A Balanced Diet" Grid.Column="1" Grid.Row="15" HorizontalAlignment="Center" FontSize="22" />
             <TextBlock Text="(Eat everything that is edible, even if it's not good for you)" Grid.Column="1" Grid.Row="16" HorizontalAlignment="Center" FontSize="14" />
+            <TextBlock x:Name="ABalancedDietInfo" Margin="0,15,0,0" Grid.Column="1" Grid.Row="16" HorizontalAlignment="Center" FontSize="14" />
             <ScrollViewer Grid.Row="17" Grid.Column="1" Width="200" Height="100">
                 <ListView x:Name="ABalancedDietList">
                     <ListView.ItemTemplate>
@@ -129,7 +133,7 @@
                                     <ColumnDefinition Width="auto"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <CheckBox Grid.Column="0" IsChecked="{Binding IsCompleted}"/>
+                                <CheckBox Grid.Column="0" IsChecked="{Binding IsCompleted}" Click="ABlanacedDietCheckBox_Click"/>
                                 <TextBlock Grid.Column="1" Margin="7,0"  Text="{Binding Name}"/>
                             </Grid>
                         </DataTemplate>
