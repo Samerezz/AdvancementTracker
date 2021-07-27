@@ -11,7 +11,7 @@ namespace AdvancementTracker.src.Core.Data
 {
     public class Save
     {
-        public static void SaveAdvancments()
+        public static void SaveAdvancments(Advancements advancements)
         {
             try
             {
@@ -19,7 +19,7 @@ namespace AdvancementTracker.src.Core.Data
                 {
                     Directory.CreateDirectory(Load.path + @"\AdvancementTracker");
                 }
-                var data = JsonConvert.SerializeObject(CreateAdvancements.Advancements,Formatting.Indented);
+                var data = JsonConvert.SerializeObject(advancements, Formatting.Indented);
                 File.WriteAllText(Load.path + @"\AdvancementTracker\save.json", data);
             }
             catch

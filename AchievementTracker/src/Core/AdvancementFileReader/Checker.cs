@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using AdvancementTracker.src.Core.Advancement;
+using AdvancementTracker.src.Core.Data;
 namespace AdvancementTracker.src.Core.AdvancementFileReader
 {
     class Checker
@@ -71,7 +72,8 @@ namespace AdvancementTracker.src.Core.AdvancementFileReader
                     }
                 }
             }
-            CreateAdvancements.Advancements = result;
+            Save.SaveAdvancments(result);
+            Load.LoadAdvancments();
         }
     }
 }

@@ -34,7 +34,7 @@ namespace AdvancementTracker.src.AdvancementWindow
         }
         private void MainWindow_Closed(object sender, EventArgs e)
         {
-            Save.SaveAdvancments();
+            Save.SaveAdvancments(CreateAdvancements.Advancements);
         }
 
         public void DisplayAdvancements()
@@ -73,6 +73,7 @@ namespace AdvancementTracker.src.AdvancementWindow
             
             
         }
+
     }
 
 }
