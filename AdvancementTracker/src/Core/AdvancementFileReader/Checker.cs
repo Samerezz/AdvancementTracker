@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using AdvancementTracker.src.Core.Advancement;
+﻿using AdvancementTracker.src.Core.Advancement;
 using AdvancementTracker.src.Core.Data;
 namespace AdvancementTracker.src.Core.AdvancementFileReader
 {

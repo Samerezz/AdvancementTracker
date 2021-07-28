@@ -1,11 +1,6 @@
-﻿using System;
+﻿using AdvancementTracker.src.Core.Advancement;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-
-using AdvancementTracker.src.Core.Advancement;
 namespace AdvancementTracker.src.AdvancementWindow
 {
     class GetInfo

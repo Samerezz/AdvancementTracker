@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AdvancementTracker.src.Core.Advancement;
 using Newtonsoft.Json;
 using System.IO;
-
-using AdvancementTracker.src.Core.Advancement;
 namespace AdvancementTracker.src.Core.Data
 {
     public class Save

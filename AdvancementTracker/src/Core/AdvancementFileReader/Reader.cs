@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.IO;
 using System.Text;
-using System.Threading.Tasks;
-using System.IO;
-
-using AdvancementTracker.src.Core.Advancement;
 namespace AdvancementTracker.src.Core.AdvancementFileReader
 {
     public class Reader

@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-using System.IO;
-
+﻿using AdvancementTracker.src.AdvancementWindow;
 using AdvancementTracker.src.Core.Advancement;
-using AdvancementTracker.src.AdvancementWindow;
+using Newtonsoft.Json;
+using System;
+using System.IO;
 namespace AdvancementTracker.src.Core.Data
 {
     class Load

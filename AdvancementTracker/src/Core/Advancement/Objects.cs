@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AdvancementTracker.src.Core.Advancement
+﻿namespace AdvancementTracker.src.Core.Advancement
 {
     public class AdvancementObject
     {
