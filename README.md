@@ -1,6 +1,7 @@
 # AdvancementTracker
 Tracker for minecraft advancements
 
+Note: You will need [.NET Desktop Runtime](https://dotnet.microsoft.com/download/dotnet/5.0) to run this program
 ## Features
 
 - Supports Minecraft's advancements file.
