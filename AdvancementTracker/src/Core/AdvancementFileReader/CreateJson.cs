@@ -1,26 +1,35 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
+using AdvancementTracker.src.Core.Advancement;
 namespace AdvancementTracker.src.Core.AdvancementFileReader
 {
     class CreateJson
     {
-        public static void Create(string data)
+        /// <summary>
+        /// Creates the json neeeded from minecraft advancement file.
+        /// </summary>
+        /// <param name="data">Minecraft advancement file text.</param>
+        /// <returns>All the needed Advancements.</returns>
+        public static Advancements Create(string data)
         {
-            
+
             string bredAllAnimals = GetAdvancement.Get(data, "\"minecraft:husbandry/bred_all_animals\": {");
             string adventuringTime = GetAdvancement.Get(data, "\"minecraft:adventure/adventuring_time\": {");
             string killAllMobs = GetAdvancement.Get(data, "\"minecraft:adventure/kill_all_mobs\": {");
             string balancedDiet = GetAdvancement.Get(data, "\"minecraft:husbandry/balanced_diet\": {");
 
-            bredAllAnimals = Replacer.Replace(bredAllAnimals);
-            adventuringTime = Replacer.Replace(adventuringTime);
-            killAllMobs = Replacer.Replace(killAllMobs);
-            balancedDiet = Replacer.Replace(balancedDiet);
-            string json = JsonCorrector.Correct(new List<string> { bredAllAnimals, adventuringTime, killAllMobs, balancedDiet });
-            var advancements1 = JsonConvert.DeserializeObject<Root>(json);
-            Checker.Check(advancements1);
-            
+            bredAllAnimals = Modifier.Modify(bredAllAnimals);
+            adventuringTime = Modifier.Modify(adventuringTime);
+            killAllMobs = Modifier.Modify(killAllMobs);
+            balancedDiet = Modifier.Modify(balancedDiet);
+
+            string json = JsonCombiner.Combine(new List<string> { bredAllAnimals, adventuringTime, killAllMobs, balancedDiet });
+
+            var advancements = JsonConvert.DeserializeObject<Root>(json);
+
+            return Checker.Check(advancements);
+
         }
 
     }

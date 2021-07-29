@@ -2,19 +2,22 @@
 
 namespace AdvancementTracker.src.Core.AdvancementFileReader
 {
-    class Replacer
+    class Modifier
     {
-        public static string Replace(string json) {
+        /// <summary>
+        /// Modifies alot of things in minecraft's advancements file 
+        /// </summary>
+        /// <param name="json">the json text to modify.</param>
+        /// <returns>The modified string.</returns>
+        public static string Modify(string json) {
             StringBuilder str = new StringBuilder();
             foreach (var character in json)
             {
                 if (char.IsDigit(character) || character == '-' || character == '+')
                 {
-
                     continue;
                 }
                 str.Append(character);
-
             }
             str = str.Replace(" :: ", string.Empty)
                 .Replace("\"\"", string.Empty).Replace("minecraft:", string.Empty)
@@ -51,8 +54,6 @@ namespace AdvancementTracker.src.Core.AdvancementFileReader
                     str2.Append(character);
                 }
             }
-
-
             json = str2.ToString();
             return json;
         }

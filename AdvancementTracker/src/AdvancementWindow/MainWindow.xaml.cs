@@ -1,17 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Microsoft.Win32;
 
 using AdvancementTracker.src.Core.Advancement;
@@ -29,42 +17,40 @@ namespace AdvancementTracker.src.AdvancementWindow
         {
             InitializeComponent();
             Load.LoadAdvancments();
-            DisplayAdvancements();
+            DisplayAdvancements(Advancements);
             Closed += MainWindow_Closed;
-
         }
         private void MainWindow_Closed(object sender, EventArgs e)
         {
             Save.SaveAdvancments(Advancements);
         }
 
-        public void DisplayAdvancements()
+        /// <summary>
+        /// Displays the advancements on the advancements lists and text blocks
+        /// </summary>
+        /// <param name="advancements">The advancements to display</param>
+        public void DisplayAdvancements(Advancements advancements)
         {
+            MonstersHuntedList.ItemsSource = advancements.MonstersHunted.Objects;
+            AdventuringTimeList.ItemsSource = advancements.AdventuringTime.Objects;
+            TwoByTwoList.ItemsSource = advancements.TwoByTwo.Objects;
+            ABalancedDietList.ItemsSource = advancements.ABalancedDiet.Objects;
 
-            MonstersHuntedList.ItemsSource = Advancements.MonstersHunted.Objects;
-
-            AdventuringTimeList.ItemsSource = Advancements.AdventuringTime.Objects;
-
-            TwoByTwoList.ItemsSource = Advancements.TwoByTwo.Objects;
-
-            ABalancedDietList.ItemsSource = Advancements.AbalancedDiet.Objects;
-
-            MonsterHuntedInfo.Text = GetInfo.Get(Advancements.MonstersHunted.Objects);
-            AdventuringTimeInfo.Text = GetInfo.Get(Advancements.AdventuringTime.Objects);
-            TwoByTwoInfo.Text = GetInfo.Get(Advancements.TwoByTwo.Objects);
-            ABalancedDietInfo.Text = GetInfo.Get(Advancements.AbalancedDiet.Objects);
-
+            MonsterHuntedInfo.Text = GetInfo.Get(advancements.MonstersHunted.Objects);
+            AdventuringTimeInfo.Text = GetInfo.Get(advancements.AdventuringTime.Objects);
+            TwoByTwoInfo.Text = GetInfo.Get(advancements.TwoByTwo.Objects);
+            ABalancedDietInfo.Text = GetInfo.Get(advancements.ABalancedDiet.Objects);
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-           var result = MessageBox.Show("Press Ok to confirm", "Delete Save", MessageBoxButton.OKCancel);
+            var result = MessageBox.Show("Press Ok to confirm", "Delete Save", MessageBoxButton.OKCancel);
             if (result == MessageBoxResult.OK)
             {
                 Delete.DeleteAdvancments();
                 Advancements = new Advancements();
                 CreateAdvancements.Create(Advancements);
-                DisplayAdvancements();
+                DisplayAdvancements(Advancements);
             }
         }
 
@@ -73,14 +59,11 @@ namespace AdvancementTracker.src.AdvancementWindow
             OpenFileDialog file = new OpenFileDialog();
             if (file.ShowDialog() == true)
             {
-                Reader.Read(file.OpenFile());
-                DisplayAdvancements();
+                var data = Reader.Read(file.OpenFile());
+                Advancements = CreateJson.Create(data);
+                DisplayAdvancements(Advancements);
             }
-            
-            
         }
-
-        
 
         private void MonsterHuntedCheckBox_Click(object sender, RoutedEventArgs e)
         {
@@ -96,12 +79,12 @@ namespace AdvancementTracker.src.AdvancementWindow
         }
         private void ABlanacedDietCheckBox_Click(object sender, RoutedEventArgs e)
         {
-            ABalancedDietInfo.Text = GetInfo.Get(Advancements.AbalancedDiet.Objects);
-            
+            ABalancedDietInfo.Text = GetInfo.Get(Advancements.ABalancedDiet.Objects);
+
         }
     }
 
 }
-    
-    
+
+
 

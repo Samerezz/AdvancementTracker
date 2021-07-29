@@ -8,6 +8,9 @@ namespace AdvancementTracker.src.Core.Data
     class Load
     {
         public readonly static string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+        /// <summary>
+        /// Loads advancements from save.json file in documents.
+        /// </summary>
         public static void LoadAdvancments()
         {
             if (File.Exists(path + @"\AdvancementTracker\save.json"))
@@ -16,7 +19,6 @@ namespace AdvancementTracker.src.Core.Data
                 try
                 {
                     Directory.CreateDirectory(path + @"\AdvancementTracker");
-
                     var text = File.ReadAllText(path + @"\AdvancementTracker\save.json");
                     Advancements advancements = JsonConvert.DeserializeObject<Advancements>(text);
                     MainWindow.Advancements = advancements;

@@ -5,6 +5,11 @@ namespace AdvancementTracker.src.AdvancementWindow
 {
     class GetInfo
     {
+        /// <summary>
+        /// Gets some useful info from the advancement.
+        /// </summary>
+        /// <param name="advancement">The Advancement</param>
+        /// <returns>percentage of how many items are done in an advancement.</returns>
         public static string Get(List<AdvancementObject> advancement)
         {
             double comp = 0;

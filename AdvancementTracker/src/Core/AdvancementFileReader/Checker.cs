@@ -1,21 +1,25 @@
 ﻿using AdvancementTracker.src.Core.Advancement;
-using AdvancementTracker.src.Core.Data;
 namespace AdvancementTracker.src.Core.AdvancementFileReader
 {
     class Checker
     {
-        public static void Check(Root advancements1)
+        /// <summary>
+        /// Determines the IsCompleted Property in every object.
+        /// </summary>
+        /// <param name="advancements">The advancements to compare with.</param>
+        /// <returns>Advancements with the right IsCompleted property.</returns>
+        public static Advancements Check(Root advancements)
         {
             Advancements result = new Advancements();
             CreateAdvancements.Create(result);
-            if (advancements1.BalancedDiet != null)
+            if (advancements.BalancedDiet != null)
             {
                 {
-                    foreach (var obj1 in advancements1.BalancedDiet)
+                    foreach (var obj1 in advancements.BalancedDiet)
                     {
-                        foreach (var obj2 in result.AbalancedDiet.Objects)
+                        foreach (var obj2 in result.ABalancedDiet.Objects)
                         {
-                            if (obj1.ToLower().Equals(obj2.Name.ToLower().Replace("raw ",string.Empty)))
+                            if (obj1.ToLower().Equals(obj2.Name.ToLower().Replace("raw ", string.Empty)))
                             {
                                 obj2.IsCompleted = true;
                                 break;
@@ -24,9 +28,9 @@ namespace AdvancementTracker.src.Core.AdvancementFileReader
                     }
                 }
             }
-            if (advancements1.AdventuringTime != null)
+            if (advancements.AdventuringTime != null)
             {
-                foreach (var obj1 in advancements1.AdventuringTime)
+                foreach (var obj1 in advancements.AdventuringTime)
                 {
                     foreach (var obj2 in result.AdventuringTime.Objects)
                     {
@@ -38,9 +42,9 @@ namespace AdvancementTracker.src.Core.AdvancementFileReader
                     }
                 }
             }
-            if (advancements1.KillAllMobs != null)
+            if (advancements.KillAllMobs != null)
             {
-                foreach (var obj1 in advancements1.KillAllMobs)
+                foreach (var obj1 in advancements.KillAllMobs)
                 {
                     foreach (var obj2 in result.MonstersHunted.Objects)
                     {
@@ -52,9 +56,9 @@ namespace AdvancementTracker.src.Core.AdvancementFileReader
                     }
                 }
             }
-            if (advancements1.BredAllAnimals != null)
+            if (advancements.BredAllAnimals != null)
             {
-                foreach (var obj1 in advancements1.BredAllAnimals)
+                foreach (var obj1 in advancements.BredAllAnimals)
                 {
                     foreach (var obj2 in result.TwoByTwo.Objects)
                     {
@@ -66,8 +70,7 @@ namespace AdvancementTracker.src.Core.AdvancementFileReader
                     }
                 }
             }
-            Save.SaveAdvancments(result);
-            Load.LoadAdvancments();
+            return result;
         }
     }
 }
