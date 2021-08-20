@@ -1,4 +1,4 @@
-﻿using AdvancementTracker.src.AdvancementWindow;
+﻿using AdvancementTracker.src.UI.AdvancementWindow;
 using AdvancementTracker.src.Core.Advancement;
 using Newtonsoft.Json;
 using System;
@@ -21,7 +21,7 @@ namespace AdvancementTracker.src.Core.Data
                     Directory.CreateDirectory(path + @"\AdvancementTracker");
                     var text = File.ReadAllText(path + @"\AdvancementTracker\save.json");
                     Advancements advancements = JsonConvert.DeserializeObject<Advancements>(text);
-                    MainWindow.Advancements = advancements;
+                    AdvancementWindow.Advancements = advancements;
                 }
                 catch
                 {
@@ -30,7 +30,7 @@ namespace AdvancementTracker.src.Core.Data
             }
             else
             {
-                CreateAdvancements.Create(MainWindow.Advancements);
+                CreateAdvancements.Create(AdvancementWindow.Advancements);
             }
             
         }

@@ -1,7 +1,7 @@
 ﻿using AdvancementTracker.src.Core.Advancement;
 using System;
 using System.Collections.Generic;
-namespace AdvancementTracker.src.AdvancementWindow
+namespace AdvancementTracker.src.UI.UserControls
 {
     class GetInfo
     {
